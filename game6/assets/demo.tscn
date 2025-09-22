@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcv6o8jpdn7f4"]
+
+[ext_resource type="Script" uid="uid://qpkc3oqsljl0" path="res://assets/demo.gd" id="1_amuei"]
+[ext_resource type="PackedScene" uid="uid://gxnx0cnluvk0" path="res://assets/Walking (1).tscn" id="1_s02n5"]
+[ext_resource type="PackedScene" uid="uid://dtyg7s6hh2fp2" path="res://assets/Running.tscn" id="3_e6to4"]
+[ext_resource type="PackedScene" uid="uid://c02tmjcswjgp1" path="res://assets/death.tscn" id="4_457xp"]
+[ext_resource type="PackedScene" uid="uid://mht3htxprb58" path="res://assets/dance.tscn" id="5_xfgwy"]
+[ext_resource type="PackedScene" uid="uid://lklmyrob1nlo" path="res://assets/Snowman Scene.tscn" id="6_137jn"]
+[ext_resource type="PackedScene" uid="uid://b1psu5ih2lvk5" path="res://assets/Pine Tree with Snow.tscn" id="6_uskw3"]
+[ext_resource type="PackedScene" uid="uid://d21vwequ47pfo" path="res://assets/Jumping.tscn" id="7_3xmef"]
+[ext_resource type="PackedScene" uid="uid://clppkv3dybja7" path="res://assets/Cottage.tscn" id="9_ehoep"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfgwy"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_137jn"]
+size = Vector3(60, 2, 60)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_amuei")
+
+[node name="ground" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09729, 4.12593, 9.42808)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22159, 0, -3.05397)
+shape = SubResource("BoxShape3D_xfgwy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+mesh = SubResource("BoxMesh_137jn")
+
+[node name="nunu4" parent="." instance=ExtResource("5_xfgwy")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -23.2011, 7.86923, 17)
+
+[node name="nunu3" parent="." instance=ExtResource("4_457xp")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -20.6668, 8.34412, 12.5172)
+
+[node name="nunu2" parent="." instance=ExtResource("3_e6to4")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -15.5539, 7.35489, 6.67048)
+
+[node name="nunu1" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18.1247, 7.01095, 0.291603)
+
+[node name="Pine Tree with Snow" parent="." instance=ExtResource("6_uskw3")]
+transform = Transform3D(20.1825, 0, 0, 0, 21.2058, 0, 0, 0, 29.353, -14.6833, 16.737, -10)
+
+[node name="Jumping" parent="." instance=ExtResource("7_3xmef")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.3441, 7.70154, -6.05087)
+
+[node name="Snowman Scene" parent="." instance=ExtResource("6_137jn")]
+transform = Transform3D(-1.52352e-07, 0, -2.14568, 0, 2.7904, 0, 3.4854, 0, -9.37905e-08, -10.1386, 11.7457, -0.378412)
+
+[node name="Cottage" parent="." instance=ExtResource("9_ehoep")]
+transform = Transform3D(-8.64151e-06, 0, -157.961, 0, 143.496, 0, 197.695, 0, -6.90469e-06, 14.0668, 19.6623, 7.69691)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.757928, -0.557046, 0.339476, 0.638599, 0.739823, -0.211786, -0.133178, 0.377308, 0.916462, -4.92452, 14.0354, 4)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -34, 13, 13)
